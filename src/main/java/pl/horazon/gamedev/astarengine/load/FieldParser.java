@@ -26,7 +26,7 @@ public class FieldParser {
 
     public int[][] getMap(){
 
-        int[][] ctab = new int[10][list.size()];
+        int[][] ctab = new int[list.size()][list.get(0).length];
 
         int i=0;
 
@@ -52,6 +52,41 @@ public class FieldParser {
                 row[i]=Integer.valueOf(String.valueOf(line.charAt(i))).intValue();
             }
 
+            list.add(row);
+            System.out.println(Arrays.toString(row));
+        }
+
+        for(Field f : fields){
+            System.out.println(f);
+        }
+    }
+    
+    public void parseHex() throws IOException {
+        List<Field> fields = new ArrayList<Field>();
+
+        List<String> lines = FileUtils.readLines(file, "UTF-8");
+
+        boolean flip = false;
+        for (String line : lines) {
+            int rowSize = line.length()*2;
+
+            int[] row = new int[rowSize];
+
+            int cont=0;
+            for(int i=0; i<rowSize/2; i++, cont++){
+            	
+            	if(flip) {
+                    row[cont]=-1;
+                    row[++cont]=Integer.valueOf(String.valueOf(line.charAt(i))).intValue();
+            	} else {
+                    row[cont]=Integer.valueOf(String.valueOf(line.charAt(i))).intValue();
+                    row[++cont]=-1;
+            	}
+                //System.out.println(Arrays.toString(row));
+            	
+            }
+
+        	flip = !flip;
             list.add(row);
             System.out.println(Arrays.toString(row));
         }

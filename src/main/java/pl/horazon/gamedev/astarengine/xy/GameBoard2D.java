@@ -3,6 +3,7 @@ package pl.horazon.gamedev.astarengine.xy;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 import java.util.Set;
 
@@ -99,7 +100,7 @@ public class GameBoard2D implements GameBoard<Poind2D> {
 	    }
 	}
 
-	public void printMap(Set<Poind2D> openNeighbors, Set<Poind2D> closedNeighbors, Poind2D current, Poind2D start, Poind2D stop) {
+	public void printMap(Collection<Poind2D> openNeighbors, Collection<Poind2D> closedNeighbors, Poind2D current, Poind2D start, Poind2D stop) {
 	    int[][] printmap = new int[10][10];
 	
 	    for(int y = 0; y<10; y++){

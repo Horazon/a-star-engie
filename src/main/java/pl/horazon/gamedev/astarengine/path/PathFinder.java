@@ -1,8 +1,10 @@
 package pl.horazon.gamedev.astarengine.path;
 
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
 import java.util.HashSet;
 import java.util.List;
-import java.util.PriorityQueue;
 import java.util.Set;
 
 import org.apache.logging.log4j.LogManager;
@@ -26,11 +28,10 @@ public class PathFinder<P extends Point> {
 	private Result result;
 	private GameBoard<P> gameBoard;
 
-	private Set<P> openNeighbors = new HashSet<>();
+	private List<P> openNeighbors = new ArrayList<>();
 	private Set<P> closedNeighbors = new HashSet<>();
 	private Set<P> currentNeighbors = new HashSet<>();
-	private PriorityQueue<P> openPrio = new PriorityQueue<>();
-	
+
 	public PathFinder(P startPoint, P stopPoint, GameBoard<P> gameBoard) {
 		this.startPoint = startPoint;
 		this.stopPoint = stopPoint;
@@ -53,24 +54,23 @@ public class PathFinder<P extends Point> {
 		current.calcGF(current);
 		current.setFrom(null);
 
-		openPrio.add(current);
-		openNeighbors(current);
+		openNeighbors.add(current);
 
 		int runCount = 1;
 
 		while (!current.equals(stopPoint) && isMoveAvaliable()) {
-			//gameBoard.printMap(openNeighbors, closedNeighbors, current, startPoint, stopPoint);
+			gameBoard.printMap(openNeighbors, closedNeighbors, current, startPoint, stopPoint);
 
 			current = findChipestPoint();
 
 			openNeighbors.remove(current);
 			openNeighbors(current);
-			
+
 			recalculateNeighbors(current, stopPoint);
 
 			closedNeighbors.add(current);
 			currentNeighbors.clear();
-			
+
 			runCount++;
 		}
 
@@ -78,7 +78,7 @@ public class PathFinder<P extends Point> {
 		logger.info("Otwarte: " + openNeighbors.size());
 		logger.info("Zamkniete: " + closedNeighbors.size());
 		logger.info("Wszystkie: " + (closedNeighbors.size() + openNeighbors.size()));
-		
+
 		if (current.equals(stopPoint)) {
 			logger.info("Droga: JEST");
 			Utils.printRoad(current);
@@ -98,7 +98,7 @@ public class PathFinder<P extends Point> {
 	}
 
 	private void openNeighbors(P p) {
-		List<P> points = gameBoard.getNeighbors(p);
+		Collection<P> points = gameBoard.getNeighbors(p);
 
 		for (P point : points) {
 			logger.debug(String.format("Sasiad %s", point.toString()));
@@ -134,18 +134,20 @@ public class PathFinder<P extends Point> {
 		logger.debug(String.format("= Otwieramy punkt %s", p));
 		openNeighbors.add(p);
 		currentNeighbors.add(p);
-		openPrio.add(p);
 	}
 
 	private P findChipestPoint() {
-		P min = openPrio.poll();
+
+		Collections.sort(openNeighbors);
+		P min = (P) openNeighbors.get(0);
+
 		logger.debug(String.format("Min %s %s", min.toString(), min.getF()));
 
 		return min;
 	}
 
 	private boolean isMoveAvaliable() {
-		return !openPrio.isEmpty();
+		return !openNeighbors.isEmpty();
 
 	}
 }

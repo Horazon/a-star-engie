@@ -17,6 +17,4 @@ public interface Point extends Comparable<Point> {
 	public abstract int getMoveCost();
 
     public abstract void calcH(Point p);
-    
-    public abstract boolean isMe(Point p);
 }

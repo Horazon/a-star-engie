@@ -104,16 +104,16 @@ public class GameBoardHex implements GameBoard<PointHex> {
 	            	}
 	            	
 	            	PointHex p = new PointHex(x, y);
-	            	if(start.isMe(p)) {
+	            	if(start.equals(p)) {
 		            	l2.append("[B] ");
-	            	} else if(stop.isMe(p)){
+	            	} else if(stop.equals(p)){
 
 		            	l2.append("[E] ");
 	            	} else if(openNeighbors.contains(p)){
 		            	l2.append("[.] ");
 	            	} else if(closedNeighbors.contains(p)){
 		            	l2.append("[#] ");
-	            	} else if(current.isMe(p)){
+	            	} else if(current.equals(p)){
 		            	l2.append("[@] ");
 	            	} else {
 	            		l2.append("[ ] ");

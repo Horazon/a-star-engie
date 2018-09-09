@@ -28,14 +28,13 @@ public class PointXY implements Point {
 	}
 
 	@Override
-	public boolean isMe(Point p) {
-		PointXY p2 = (PointXY) p;
-		return p2.x == x && p2.y == y;
-	}
-
-	@Override
 	public boolean equals(Object obj) {
-		return isMe((PointXY) obj);
+		
+		if(!(obj instanceof PointXY)) 
+			return false;
+		
+		PointXY p2 = (PointXY) obj;
+		return p2.x == x && p2.y == y;
 	}
 
 	@Override

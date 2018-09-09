@@ -10,6 +10,5 @@ public class HexTest {
 	public void test() {
 		GameBoardHex boardHex = new GameBoardHex("map-hex.txt");
 		boardHex.loadMap();
-		boardHex.printMap(null, null, null, null, null);
 	}
 }

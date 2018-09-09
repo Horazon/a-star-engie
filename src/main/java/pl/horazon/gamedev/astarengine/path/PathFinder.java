@@ -9,7 +9,6 @@ import org.apache.logging.log4j.Logger;
 
 import pl.horazon.gamedev.astarengine.api.GameBoard;
 import pl.horazon.gamedev.astarengine.api.Point;
-import pl.horazon.gamedev.astarengine.common.PointXY;
 import pl.horazon.gamedev.astarengine.util.Utils;
 
 public class PathFinder<P extends Point, G extends GameBoard<P>> {

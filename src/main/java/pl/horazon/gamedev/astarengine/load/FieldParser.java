@@ -20,8 +20,6 @@ public class FieldParser {
         this.file = file;
     }
 
-    private int[][] tab = new int[0][0];
-
     private List<int[]> list = new ArrayList<>();
 
     public int[][] getMap(){

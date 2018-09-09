@@ -5,11 +5,9 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
-import java.util.Set;
 
 import pl.horazon.gamedev.astarengine.api.GameBoard;
 import pl.horazon.gamedev.astarengine.load.FieldParser;
-import pl.horazon.gamedev.astarengine.xy.Poind2D;
 
 public class GameBoardHex implements GameBoard<PointHex> {
 

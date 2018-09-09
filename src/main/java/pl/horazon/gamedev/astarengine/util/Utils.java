@@ -37,4 +37,22 @@ public class Utils {
     public static int calculateManhatanDisstance(int x0, int x1, int y0, int y1) {
         return Math.abs(x1-x0) + Math.abs(y1-y0);
     }
+    
+    public static int calculateG(Point me, Point current) {
+		int newG;
+		if (me.equals(current)) {
+			newG = 0;
+		} else {
+			newG = current.getG() + current.getMoveCost();
+		}
+		return newG;
+	}
+    
+    public static int calculateF(int g, Point point) {
+    	return g + point.getH();
+	}
+    
+	public static boolean isBetterPath(Point p, int f) {
+		return !(f <= p.getF() && p.getF() == 0);
+	}
 }

@@ -9,7 +9,7 @@ import pl.horazon.gamedev.astarengine.xy.Poind2D;
 
 public class Main {
 	
-	public static void main1(String arg[]){
+	public static void main(String arg[]){
 
     	GameBoardHex boardHex = new GameBoardHex("map-hex.txt");
     	boardHex.loadMap();
@@ -26,7 +26,7 @@ public class Main {
         boardHex.printMapWithRoad(p);
     }
 	
-    public static void main(String arg[]){
+    public static void main2(String arg[]){
 
     	GameBoard2D borad = new GameBoard2D("map.txt");      
     	borad.loadMap();

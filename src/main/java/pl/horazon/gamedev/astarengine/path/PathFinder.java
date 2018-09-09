@@ -9,6 +9,7 @@ import org.apache.logging.log4j.Logger;
 
 import pl.horazon.gamedev.astarengine.api.GameBoard;
 import pl.horazon.gamedev.astarengine.api.Point;
+import pl.horazon.gamedev.astarengine.common.PointXY;
 
 public class PathFinder<P extends Point, G extends GameBoard<P>> {
 
@@ -42,7 +43,8 @@ public class PathFinder<P extends Point, G extends GameBoard<P>> {
 
 	private void setup() {
 		startPoint.calcH(stopPoint);
-		startPoint.calcGF(startPoint);
+		startPoint.setG(0);
+		startPoint.setF(0);
 		startPoint.setFrom(null);
 
 		openNeighbors.add(startPoint);
@@ -96,10 +98,30 @@ public class PathFinder<P extends Point, G extends GameBoard<P>> {
 	private void recalculateNeighbors(Point current, Point stop) {
 		for (Point a : currentNeighbors) {
 			a.calcH(stop);
-			a.calcGF(current);
+			calcGF(a, current);
 		}
 	}
+	
+	public void calcGF(Point me, Point current) {
 
+		PointXY p2 = (PointXY) current;
+		int newG = 0;
+
+		if (me.isMe(p2)) {
+			newG = 0;
+		} else {
+			newG = p2.getG() + p2.getMoveCost();
+		}
+
+		int newF = newG + me.getH();
+
+		if(!(newF <= me.getF() && me.getF() == 0)) {
+			me.setF(newF);
+			me.setG(newG);
+			me.setFrom(p2);
+		}
+	}
+	
 	private void openNeighbors(P p) {
 		for (P point : gameBoard.getNeighbors(p)) {
 			openNeighbor(point);

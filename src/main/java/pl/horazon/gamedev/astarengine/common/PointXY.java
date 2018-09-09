@@ -11,6 +11,7 @@ public class PointXY implements Point {
 
 	public final int x;
 	public final int y;
+	
 	private int g;
 	private int f;
 	private int h;
@@ -24,32 +25,6 @@ public class PointXY implements Point {
 	public void calcH(Point p) {
 		PointXY p2 = (PointXY) p;
 		this.h = calculateManhatanDisstance(this.x, p2.x, this.y, p2.y);
-	}
-
-	@Override
-	public int getF() {
-		return f;
-	}
-
-	@Override
-	public void calcGF(Point p) {
-
-		PointXY p2 = (PointXY) p;
-		int newG = 0;
-
-		if (isMe(p)) {
-			newG = 0;
-		} else {
-			newG = p2.g + MOVE_COST;
-		}
-
-		int newF = newG + h;
-
-		if(!(newF <= f && f == 0)) {
-			f = newF;
-			g = newG;
-			this.from = p;
-		}
 	}
 
 	@Override
@@ -98,11 +73,38 @@ public class PointXY implements Point {
 	@Override
 	public void setFrom(Point from) {
 		this.from = from;
-
 	}
 
 	@Override
 	public Point getFrom() {
 		return from;
+	}
+
+	public int getG() {
+		return g;
+	}
+
+	public void setG(int g) {
+		this.g = g;
+	}
+
+	public int getF() {
+		return f;
+	}
+
+	public void setF(int f) {
+		this.f = f;
+	}
+
+	public int getH() {
+		return h;
+	}
+
+	public void setH(int h) {
+		this.h = h;
+	}
+
+	public int getMoveCost() {
+		return MOVE_COST;
 	}
 }

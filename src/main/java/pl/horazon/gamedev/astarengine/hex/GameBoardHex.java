@@ -18,7 +18,6 @@ public class GameBoardHex implements GameBoard<PointHex> {
         this.fileName = fileName;
     }
 	
-	@Override
 	public boolean isMoveAlloved(PointHex p) {
 		if(p.x<0 || p.y<0 || p.x>=map[0].length || p.y>=map.length) return false;
 		

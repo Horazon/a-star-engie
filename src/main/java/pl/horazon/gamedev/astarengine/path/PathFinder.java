@@ -72,6 +72,10 @@ public class PathFinder<P extends Point, G extends GameBoard<P>> {
 			currentNeighbors.clear();
 
 			runCount++;
+			
+			if(logger.isDebugEnabled()){
+				gameBoard.printMap(openNeighbors, closedNeighbors, current, startPoint, stopPoint);
+			}
 		}
 
 		if (current.equals(stopPoint)) {
@@ -121,7 +125,7 @@ public class PathFinder<P extends Point, G extends GameBoard<P>> {
 	}
 
 	private void openNeighbor(P p) {
-		if (openNeighbors.contains(p) || closedNeighbors.contains(p) || !gameBoard.isMoveAlloved(p)) {
+		if (openNeighbors.contains(p) || closedNeighbors.contains(p)) {
 			return;
 		}
 

@@ -14,6 +14,7 @@ import org.apache.logging.log4j.Logger;
 
 import pl.horazon.gamedev.astarengine.api.GameBoard;
 import pl.horazon.gamedev.astarengine.load.FieldParser;
+import pl.horazon.gamedev.astarengine.util.Utils;
 
 public class GameBoard2D implements GameBoard<Poind2D> {
 
@@ -92,12 +93,8 @@ public class GameBoard2D implements GameBoard<Poind2D> {
 		return map[y][x] != WALL;
 	}
 
-	private int[][] copyMap() {
-		return Arrays.stream(map).toArray(int[][]::new);
-	}
-
 	public void printMapWithRoad(Poind2D point) {
-		int[][] printmap = copyMap();
+		int[][] printmap = Utils.cloneArray(map);
 
 		Poind2D next = point;
 
@@ -111,7 +108,7 @@ public class GameBoard2D implements GameBoard<Poind2D> {
 
 	public void printMap(Collection<Poind2D> openNeighbors, Collection<Poind2D> closedNeighbors, Poind2D current,
 			Poind2D start, Poind2D stop) {
-		int[][] printmap = copyMap();
+		int[][] printmap = Utils.cloneArray(map);
 
 		for (Poind2D k : openNeighbors) {
 			printmap[k.y][k.x] = OPEN;

@@ -1,0 +1,12 @@
+2018-09-12 21:53:35.795 [main] INFO  pl.horazon.gamedev.astarengine.path.PathFinder - Path: exists
+2018-09-12 21:53:35.803 [main] INFO  pl.horazon.gamedev.astarengine.path.PathFinder - Run count : 71
+2018-09-12 21:53:35.803 [main] INFO  pl.horazon.gamedev.astarengine.path.PathFinder - Open      : 2
+2018-09-12 21:53:35.803 [main] INFO  pl.horazon.gamedev.astarengine.path.PathFinder - Closed    : 71
+2018-09-12 21:53:35.803 [main] INFO  pl.horazon.gamedev.astarengine.path.PathFinder - All       : 73
+2018-09-12 21:53:35.803 [main] INFO  pl.horazon.gamedev.astarengine.path.PathFinder - Elipsed time: 12 ms
+2018-09-12 21:53:35.867 [main] INFO  pl.horazon.gamedev.astarengine.path.PathFinder - Path: not exists
+2018-09-12 21:53:35.867 [main] INFO  pl.horazon.gamedev.astarengine.path.PathFinder - Run count : 20
+2018-09-12 21:53:35.871 [main] INFO  pl.horazon.gamedev.astarengine.path.PathFinder - Open      : 0
+2018-09-12 21:53:35.871 [main] INFO  pl.horazon.gamedev.astarengine.path.PathFinder - Closed    : 20
+2018-09-12 21:53:35.871 [main] INFO  pl.horazon.gamedev.astarengine.path.PathFinder - All       : 20
+2018-09-12 21:53:35.871 [main] INFO  pl.horazon.gamedev.astarengine.path.PathFinder - Elipsed time: 4 ms

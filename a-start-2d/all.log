@@ -1,0 +1,16 @@
+2018-09-12 22:02:03.724 [main] INFO  pl.horazon.gamedev.astarengine.path.PathFinder - Path: exists
+2018-09-12 22:02:03.728 [main] INFO  pl.horazon.gamedev.astarengine.path.PathFinder - Run count : 64
+2018-09-12 22:02:03.728 [main] INFO  pl.horazon.gamedev.astarengine.path.PathFinder - Open      : 2
+2018-09-12 22:02:03.728 [main] INFO  pl.horazon.gamedev.astarengine.path.PathFinder - Closed    : 64
+2018-09-12 22:02:03.728 [main] INFO  pl.horazon.gamedev.astarengine.path.PathFinder - All       : 66
+2018-09-12 22:02:03.728 [main] INFO  pl.horazon.gamedev.astarengine.path.PathFinder - Elipsed time: 9 ms
+2018-09-12 22:02:03.732 [main] INFO  pl.horazon.gamedev.astarengine.xy.GameBoard2D - [*__1______]
+2018-09-12 22:02:03.732 [main] INFO  pl.horazon.gamedev.astarengine.xy.GameBoard2D - [*__1___1__]
+2018-09-12 22:02:03.732 [main] INFO  pl.horazon.gamedev.astarengine.xy.GameBoard2D - [*__1_111__]
+2018-09-12 22:02:03.732 [main] INFO  pl.horazon.gamedev.astarengine.xy.GameBoard2D - [**_1***1__]
+2018-09-12 22:02:03.732 [main] INFO  pl.horazon.gamedev.astarengine.xy.GameBoard2D - [1*1111*1_1]
+2018-09-12 22:02:03.732 [main] INFO  pl.horazon.gamedev.astarengine.xy.GameBoard2D - [_*_1***___]
+2018-09-12 22:02:03.732 [main] INFO  pl.horazon.gamedev.astarengine.xy.GameBoard2D - [_*_1*_____]
+2018-09-12 22:02:03.732 [main] INFO  pl.horazon.gamedev.astarengine.xy.GameBoard2D - [_****_____]
+2018-09-12 22:02:03.732 [main] INFO  pl.horazon.gamedev.astarengine.xy.GameBoard2D - [___1______]
+2018-09-12 22:02:03.732 [main] INFO  pl.horazon.gamedev.astarengine.xy.GameBoard2D - [___1______]
